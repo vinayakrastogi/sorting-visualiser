@@ -5,12 +5,10 @@
 class SORTING_ALGORITHMS {
     public:
         Visualiser vslr;
-        int os_var;
         
         void initialise(int array[], int size) {
             vslr.initialise(array,size);
             vslr.visualise(array,-1,-1);
-            os_var = vslr.os_var;
         }
 
         //////////////////////////////////////
@@ -196,12 +194,7 @@ int main() {
     SORTING_ALGORITHMS sort;
     int size;
     int choice;
-    if (sort.os_var == 1) {
-        system("cls");
-    } else {
-        system("clear");
-    }
-    
+    system("clear");
 
 
 
