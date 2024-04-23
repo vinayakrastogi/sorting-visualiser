@@ -3,12 +3,21 @@
 
 class Visualiser {
     public:
-        
+        int os_var = 1; // 1-WINDOWS, 2-LINUX
         int height;
         int length;
 
         std::string symbol {" "};
     
+        int check_linux() {
+            #ifdef __linux__
+            return 2;
+            #else
+            return 0;
+            #endif
+        }
+
+
         void initialise(int arr[],int size) {
             length = size;
             height = arr[0];
@@ -17,6 +26,7 @@ class Visualiser {
                     height = arr[i];
                 }
             }
+            os_var = check_linux();
         }
 
         void print(int state) {
@@ -37,7 +47,11 @@ class Visualiser {
         void visualise(int array[], int comparator = 9999, int current_element = 9999 ) {
 
             usleep(50000);
-            system("clear");
+            if (os_var == 1) {
+                system("cls");
+            } else {
+                system("clear");
+            }
             std::cout << std::endl;
             for (int y = height; y > 0 ; y--) {
                 for (int x = 0; x < length; x++) {
